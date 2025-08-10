@@ -22,11 +22,28 @@ class MyComponent extends React.Component {
 
         console.log(event);
     }
+
+    handeleOnchangeInput = (event) => {
+        this.setState({
+            name: event.target.value
+        })
+        console.log(event.target.value);
+    }
+
+    handleOnSubmit = (event) => {
+        event.preventDefault(); // Ngăn chặn hành động mặc định của form
+        console.log(this.state);
+        // Bạn có thể thực hiện các hành động khác sau khi submit form
+
+    }
     render() {
         return <div>
             tôi tên là {this.state.name} đến từ {this.state.address} tuổi {this.state.age}
-            <button onClick={(event) => { this.handleClick(event) }}>click vào đây</button>
-            <button onMouseOver={this.handleMouseOver}>hover me</button>
+            <form onSubmit={(event) => { this.handleOnSubmit(event) }}>
+                <input type="text" onChange={(event) => { this.handeleOnchangeInput(event) }} />
+                <button> submit</button>
+            </form>
+
         </div>;
 
 
