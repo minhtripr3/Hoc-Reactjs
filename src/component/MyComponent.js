@@ -7,9 +7,16 @@ class MyComponent extends React.Component {
         address: "Khánh Hòa - Việt Nam",
         age: 21
     };
-    handleClick(event) {
-        console.log("click me");
-        console.log(event);
+
+    handleClick = (event) => {
+
+        this.setState({
+            address: "Hà Nội - Việt Nam",
+            age: Math.floor(Math.random() * 100) + 1 // Cập nhật tuổi khi nút được nhấn
+
+        })
+
+
     }
     handleMouseOver(event) {
 
@@ -18,7 +25,7 @@ class MyComponent extends React.Component {
     render() {
         return <div>
             tôi tên là {this.state.name} đến từ {this.state.address} tuổi {this.state.age}
-            <button onClick={this.handleClick}>click vào đây</button>
+            <button onClick={(event) => { this.handleClick(event) }}>click vào đây</button>
             <button onMouseOver={this.handleMouseOver}>hover me</button>
         </div>;
 
