@@ -4,16 +4,24 @@ import UserInfo from "./UserInfo";
 import DisplayInfo from "./DisplayInfo";
 
 class MyComponent extends React.Component {
+    state = {
+        ListUser: [
+            { id: 1, name: "Hoidankhanhhoa1", age: 19 },
+            { id: 2, name: "Hoidankhanhhoa2", age: 20 },
+            { id: 3, name: "Hoidankhanhhoa3", age: 21 }
+
+        ]
+
+    }
 
 
     render() {
-        const myArray = ['1', '2', '3', '4', '5'];
+
         return <div>
             <UserInfo />
             <br />
-            <DisplayInfo name="Hoidankhanhhoa" age="19"></DisplayInfo>
-            <hr></hr>
-            <DisplayInfo name="Hoidankhanhhoa1" age="20" myArray={myArray}></DisplayInfo>
+            <DisplayInfo ListUser={this.state.ListUser}></DisplayInfo>
+
         </div>;
 
 
