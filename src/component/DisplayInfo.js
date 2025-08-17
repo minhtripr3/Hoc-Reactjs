@@ -27,7 +27,7 @@ class DisplayInfo extends React.Component {
                     </span>
                 </div>
                 {this.state.isShowListUser &&
-                    <div>
+                    <>
                         {ListUser.map((user) => {
                             return (
                                 <div key={user.id} className={user.age < 21 ? "red" : "green"}>
@@ -37,7 +37,7 @@ class DisplayInfo extends React.Component {
                                 </div>
                             )
                         })}
-                    </div>
+                    </>
                 }
                 <div>
                     <span>Danh sách người dùng</span>
