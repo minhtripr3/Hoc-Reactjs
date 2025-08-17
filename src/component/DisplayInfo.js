@@ -18,7 +18,7 @@ class DisplayInfo extends React.Component {
 
         return (
             <div className="display-info-container">
-                <img src={logo} alt="logo" />
+                {/* <img src={logo} alt="logo" /> */}
                 <h2>Danh sách người dùng</h2>
 
                 <div>
@@ -26,6 +26,7 @@ class DisplayInfo extends React.Component {
                         {this.state.isShowListUser === true ? "Hide List User" : "Show list User"}
                     </span>
                 </div>
+
                 {this.state.isShowListUser &&
                     <>
                         {ListUser.map((user) => {
@@ -34,11 +35,13 @@ class DisplayInfo extends React.Component {
                                     <div>Tên : {user.name} </div>
                                     <div>Tuổi : {user.age} </div>
                                     <hr></hr>
+                                    <button onClick={() => this.props.handelDeleteUser(user.id)}>Delete</button>
                                 </div>
                             )
                         })}
                     </>
                 }
+
                 <div>
                     <span>Danh sách người dùng</span>
                 </div>
