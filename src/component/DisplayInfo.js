@@ -2,15 +2,37 @@ import React from "react";
 import './DisplayInfo.scss';
 import logo from '../logo.svg';
 class DisplayInfo extends React.Component {
-    state = {
-        isShowListUser: true
+    constructor(props) {
+        console.log("call contructor from DisplayInfo 11111");
+        super(props);
+        this.state = {
+            isShowListUser: true
+        }
     }
+
+    componentDidMount() {
+        console.log("checkkkkk didmount");
+        setTimeout(() => {
+            document.title = "Hello React";
+        }, 3000)
+
+    }
+    componentDidUpdate(previousProps, previousState) {
+        console.log("check didupdate", this.props, previousProps);
+        if (this.props.ListUser !== previousProps.ListUser) {
+            if (this.props.ListUser.length === 5) {
+                alert("không được thêm nữa");
+            }
+        }
+    }
+
     handleShowHide = () => {
         this.setState({
             isShowListUser: !this.state.isShowListUser
         })
     }
     render() {
+        console.log("call me renderrrrr")
         // console.log(this.props);
         // destructuring props
         const { ListUser } = this.props;
@@ -29,6 +51,7 @@ class DisplayInfo extends React.Component {
 
                 {this.state.isShowListUser &&
                     <>
+
                         {ListUser.map((user) => {
                             return (
                                 <div key={user.id} className={user.age < 21 ? "red" : "green"}>
