@@ -1,6 +1,6 @@
 import React from 'react';
 import MyComponent from './MyComponent';
-class UserInfo extends React.Component {
+class AddUserInfo extends React.Component {
     state = {
         name: "Pham Minh Trí",
         address: "Khánh Hòa - Việt Nam",
@@ -26,6 +26,11 @@ class UserInfo extends React.Component {
         event.preventDefault(); // Ngăn chặn hành động mặc định của form
         console.log(this.state);
         // Bạn có thể thực hiện các hành động khác sau khi submit form
+        this.props.handleAddNewUser({
+            id: Math.floor(Math.random() * 1000 + 1) + 'random',
+            name: this.state.name,
+            age: this.state.age
+        });
 
     }
     render() {
@@ -51,4 +56,4 @@ class UserInfo extends React.Component {
         )
     }
 }
-export default UserInfo;    
+export default AddUserInfo;    

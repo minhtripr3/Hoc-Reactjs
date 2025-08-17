@@ -1,5 +1,5 @@
 import logo from './logo.svg';
-import './App.css';
+import './App.scss';
 import MyComponent from './component/MyComponent';
 import React from 'react';
 
