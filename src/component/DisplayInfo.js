@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import './DisplayInfo.scss';
 import logo from '../logo.svg';
 // class DisplayInfo extends React.Component {
@@ -48,6 +48,16 @@ const DisplayInfo = (props) => {
 
         setShowHideListUser(!isShowHideListUser);
     }
+    console.log("check render");
+    useEffect(() => {
+        if (ListUser.length === 0) {
+            alert("không có người dùng nào");
+        }
+        console.log("call me useEffect");
+
+    }, [ListUser] // Chỉ chạy 1 lần khi component được mount
+    )
+
 
 
     return (

@@ -58,7 +58,6 @@ import MyComponent from './MyComponent';
 // }
 
 const AddUserInfo = (props) => {
-    console.log("check props", props);
     const [name, setName] = useState("Pham Minh Trí");
     const [address, setAddress] = useState("Khánh Hòa - Việt Nam");
     const [age, setAge] = useState(21);
